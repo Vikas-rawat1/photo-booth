@@ -13,13 +13,7 @@ navigator.getUserMedia =
   navigator.msGetUserMedia;
 
 if (navigator.getUserMedia) {
-  // Specify facingMode constraint to switch between front and back cameras
-  var constraints = {
-    video: { facingMode: { exact: "environment" } }, // "environment" for back camera, "user" for front camera
-    audio: false
-  };
-
-  navigator.getUserMedia(constraints, onSuccess, onError);
+  navigator.getUserMedia({ video: true, audio: false }, onSuccess, onError);
 } else {
   alert("Your browser doesn't support getUserMedia");
 }
